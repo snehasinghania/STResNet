@@ -1,11 +1,16 @@
+'''
+Author: Sneha Singhania
+
+This file contains helper functions for running the main neural network.
+'''
+
 import numpy as np
 
 def batch_generator(X, y, batch_size):
     """
-    Primitive batch generator 
+    Batch generator 
     """
     size = X.shape[0]
-    print (size)
     X_copy = X.copy()
     y_copy = y.copy()
     indices = np.arange(size)
