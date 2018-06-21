@@ -15,6 +15,7 @@ class Params(object):
     num_of_filters = 64
     num_of_residual_units = 12
     num_of_output = 1 #depth of predicted output map
+    delta = 0.5
     epsilon = 1e-7
     beta1 = 0.8
     beta2 = 0.999

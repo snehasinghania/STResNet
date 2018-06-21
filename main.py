@@ -25,7 +25,7 @@ if __name__ == '__main__':
     x_closeness = np.random.random(size=(1000, param.map_height, param.map_width, param.closeness_sequence_length * param.nb_flow))
     x_period = np.random.random(size=(1000, param.map_height, param.map_width, param.period_sequence_length * param.nb_flow))
     x_trend = np.random.random(size=(1000, param.map_height, param.map_width, param.trend_sequence_length * param.nb_flow))
-    y = np.random.random(size=(1000, param.map_height, param.map_width))
+    y = np.random.random(size=(1000, param.map_height, param.map_width, 1))
     X = []   
     for j in range(x_closeness.shape[0]):
         X.append([x_closeness[j].tolist(), x_period[j].tolist(), x_trend[j].tolist()])
@@ -61,10 +61,10 @@ if __name__ == '__main__':
                 x_period = np.array(x_batch[:, 1].tolist())
                 x_trend = np.array(x_batch[:, 2].tolist())
                 loss_tr, _, summary = sess.run([g.loss, g.optimizer, g.merged],
-                                                feed_dict={g.c_tec: x_closeness,
-                                                           g.p_tec: x_period,
-                                                           g.t_tec: x_trend,
-                                                           g.output_tec: y_batch})               
+                                                feed_dict={g.c_inp: x_closeness,
+                                                           g.p_inp: x_period,
+                                                           g.t_inp: x_trend,
+                                                           g.output: y_batch})               
                 loss_train = loss_tr * param.delta + loss_train * (1 - param.delta)
                 train_writer.add_summary(summary, b + num_batches * epoch)
 
@@ -76,10 +76,10 @@ if __name__ == '__main__':
                 x_period = np.array(x_batch[:, 1].tolist())
                 x_trend = np.array(x_batch[:, 2].tolist())                
                 loss_v, summary = sess.run([g.loss, g.merged],
-                                            feed_dict={g.c_tec: x_closeness,
-                                                       g.p_tec: x_period,
-                                                       g.t_tec: x_trend,
-                                                       g.output_tec: y_batch})
+                                            feed_dict={g.c_inp: x_closeness,
+                                                       g.p_inp: x_period,
+                                                       g.t_inp: x_trend,
+                                                       g.output: y_batch})
                 loss_val += loss_v
                 val_writer.add_summary(summary, b + num_batches * epoch)
             if(num_batches != 0):

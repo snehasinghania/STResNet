@@ -13,7 +13,7 @@ class Graph(object):
     def __init__(self):
         self.graph = tf.Graph()
         with self.graph.as_default():
-            B, H, W, C, P, T, O, F, U  = param.batch_size, param.map_height, param.map_width, param.closeness_sequence_length, param.period_sequence_length, param.trend_sequence_length, param.num_of_output ,param.num_of_filters, param.num_of_residual_units           
+            B, H, W, C, P, T, O, F, U  = param.batch_size, param.map_height, param.map_width, param.closeness_sequence_length*param.nb_flow, param.period_sequence_length*param.nb_flow, param.trend_sequence_length*param.nb_flow, param.num_of_output ,param.num_of_filters, param.num_of_residual_units,            
             # get input and output          
             # shape of a input map: (Batch_size, map_height, map_width, depth(num of history maps))
             self.c_inp = tf.placeholder(tf.float32, shape=[B, H, W, C], name="closeness")
