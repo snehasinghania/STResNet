@@ -1,7 +1,7 @@
 '''
 Author: Sneha Singhania
 
-This file contains class Params for hyperparameter declarations
+This file contains class Params for hyperparameter declarations.
 '''
 
 class Params(object):

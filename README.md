@@ -1,7 +1,6 @@
 # ST-ResNet in Tensorflow
 
-A TensorFlow implementation of a deep learning based model, called Spatio-Temporal Residual Netwotk (ST-ResNet). It is an efficient predictive model that is exclusively built upon convolutions and residual links which are based on unique properties of spatio-temporal input image data. More specifically, the residual neural network framework is used model the temporal closeness, period, and trend properties
-of the input images. These properties along with external variables like weather can be used to predict the future images.
+A TensorFlow implementation of Deep Spatio-Temporal Residual Networks (ST-ResNet) from the paper ["Deep Spatio-Temporal Residual Networks for Citywide Crowd Flows Prediction"](https://arxiv.org/abs/1610.00081). ST-ResNet is an end-to-end deep learning model which uses the unique properties of temporal closeness, period and trend of spatio-temporal data, to forecast the in-flow and out-flow of crowds in a city region.
 
 ## Model architecture
 
@@ -23,14 +22,15 @@ To create the TensorFlow computation graph of the ST-ResNet architecture run:
 
 ## Code Organization
 
-The model is coded by following OOP paradigm. The complex model architecture parts are abstracted through extensive use of functions which brings in more flexibility and helps in coding Tensorflow functionality like sharing of tensors. 
+The model is implemented using OOPs and extensive modularity.
 
 File structure:
-* `main.py`: This file contains the main program. The computation graph for ST-ResNet is built and launched in a session.
+
+* `main.py`: This file contains the main program. The computation graph for ST-ResNet is built, launched in a session and trained here.
 * `params.py`: This file contains class Params for hyperparameter declarations.
-* `modules.py`: This file contain helper functions and custom neural layers. The functions help in abstracting the complexity of the architecture and Tensorflow features. These functions are being called in the st_resnet.py for defining the computational graph.
-* `st_resnet.py`: This file defines the Tensorflow computation graph for the ST-ResNet (Deep Spatio-temporal Residual Networks) architecture. The skeleton of the architecture from inputs to outputs in defined here using calls to functions defined in modules.py. Modularity ensures that the functioning of a component can be easily modified in modules.py without changing the skeleton of the ST-ResNet architecture defined in this file.
+* `modules.py`: This file contain helper functions and custom neural layers written in a modular style. An OOP paradigm is used to define the computation graph in st_resnet.py. These functions help in abstracting the complexity of the architecture from the main st_resnet.py as well as Tensorflow features (e.g. sharing of weights across network blocks). Therefore the computation graph can be defined as a simple outline (major blocks) in st_resnet.py with the actual heavy lifting outsourced as function calls here.
+* `st_resnet.py`: This file defines the Tensorflow computation graph for the ST-ResNet (Deep Spatio-temporal Residual Networks) architecture written in an OOP and modular manner. The outline of the architecture from inputs to outputs in defined here using calls to functions defined in modules.py to handle the inner complexity. Modularity ensures that the working of a component can be easily modified in modules.py without changing the skeleton of the ST-ResNet architecture defined in this file.
 
-## References
+## Reference
 
-- [Deep Spatio-Temporal Residual Networks for Citywide Crowd Flows Prediction](https://arxiv.org/pdf/1610.00081.pdf)
+Zhang, Junbo, Yu Zheng, and Dekang Qi. "Deep Spatio-Temporal Residual Networks for Citywide Crowd Flows Prediction." AAAI. 2017. [https://arxiv.org/pdf/1610.00081.pdf](https://arxiv.org/pdf/1610.00081.pdf)
