@@ -22,7 +22,7 @@ def ResUnit(inputs, filters, kernel_size, strides, scope, reuse=None):
         # perform a 2D convolution
         outputs = tf.layers.conv2d(outputs, filters, kernel_size, strides, padding="SAME", name="conv1", reuse=reuse)          
         # use layernorm before applying convolution
-        outputs = tf.contrib.layers.layer_norm(inputs, scope="layernorm2", reuse=reuse)
+        outputs = tf.contrib.layers.layer_norm(outputs, scope="layernorm2", reuse=reuse)
         # relu activation
         outputs = tf.nn.relu(outputs, name="relu")
         # perform a 2D convolution
