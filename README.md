@@ -1,5 +1,5 @@
 # UPDATE:
-The code is only tries to implement the STResNet architecture and doesn't aim to reproduce the results on the datasets of the original paper.
+The code only implements the STResNet architecture and doesn't aim to reproduce the results on the datasets of the original paper.
 
 -----
 
