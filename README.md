@@ -1,3 +1,8 @@
+# UPDATE:
+The code is only tries to implement the STResNet architecture and doesn't aim to reproduce the results on the datasets of the original paper.
+
+-----
+
 # ST-ResNet in Tensorflow
 
 A TensorFlow implementation of Deep Spatio-Temporal Residual Networks (ST-ResNet) from the paper ["Deep Spatio-Temporal Residual Networks for Citywide Crowd Flows Prediction"](https://arxiv.org/abs/1610.00081). ST-ResNet is an end-to-end deep learning model which uses the unique properties of temporal closeness, period and trend of spatio-temporal data, to forecast the in-flow and out-flow of crowds in a city region.
